@@ -1,0 +1,79 @@
+
+<div class="container "style="margin: 50px 100px;" *ngIf="Cart.Products.length !== 0">
+ 
+  <div class="row">
+    <div class="col">
+      <div class="row"  *ngFor="let item of Cart.Products" style="margin-bottom: 50px;">
+        <div class="col-6">
+          <img [src]="item.url" />
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <p>{{item.name}}</p>
+          </div>
+          <div class="row">
+            <p>${{item.price}}</p>
+          </div>
+          <div class="row">
+            <div class="col-6">
+                Amount  :                         
+                <select class="number-input" [(ngModel)]="item.Amount" (ngModelChange)="CalcTotalPrice()">
+                  <option value="0" disabled>0</option>                  
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+            </div>
+      
+            </div>
+    
+        </div>
+      </div>
+    <div class="row">
+      <h1>Total: ${{TotalAmmount}}</h1>
+    </div>
+    </div>  
+    <div class="col">
+      <form [formGroup]="myform" (ngSubmit)="SubmitForm()">
+        <div class="form-group custom">
+          <label for="FullName">Full Name</label>
+          <input type="email" class="form-control" id="FullName" formControlName="Name" placeholder="Enter Full Name">
+          <div *ngIf="myform.controls.Name.invalid && myform.controls.Name.touched" style="color: red ;">
+            <p *ngIf="myform.controls.Name.errors?.['required']">*Task is required</p>
+            <p *ngIf="myform.controls.Name.errors?.['minlength']">*Task should be at least 3 characters</p>
+          </div>
+        </div>
+        <div class="form-group custom">
+          <label for="Address">Address</label>
+          <input type="text" class="form-control" formControlName="Address" placeholder="Address">
+          <div *ngIf="myform.controls.Address.invalid && myform.controls.Name.touched" style="color: red ;">
+            <p *ngIf="myform.controls.Address.errors?.['required'] ">*Task is required</p>
+            <p *ngIf="myform.controls.Address.errors?.['minlength']">*Task should be at least 3 characters</p>
+          </div>
+        </div>
+         <div class="form-group custom">
+          <label for="CridetCardNumber">Cridet Card Number</label>
+          <input type="text" class="form-control" formControlName="CridtCardNumber" placeholder="Cridet Card Number">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <div *ngIf="myform.controls.CridtCardNumber.invalid && myform.controls.CridtCardNumber.touched" style="color: red ;">
+            <p *ngIf="myform.controls.CridtCardNumber.errors?.['required'] ">*Task is required</p>
+            <p *ngIf="myform.controls.CridtCardNumber.errors?.['minlength']">*Task should be at least 3 characters</p>
+          </div>
+        </div>      
+        <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container "style="margin: 50px 100px; color: red ;" *ngIf="Cart.Products.length === 0">
+ <h1>No Items In The Cart</h1>
+ <a routerLink="/">Back to product list</a>
+</div>

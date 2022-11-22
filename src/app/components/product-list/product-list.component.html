@@ -1,0 +1,9 @@
+
+
+<div fxLayout="row wrap" fxLayoutAlign="center"> 
+
+
+
+<app-product-item fxFlexOffset="5%" *ngFor="let product of Products" [ProductItem]="product" (SingleProduct)="addToCart($event)" ></app-product-item>
+</div>
+

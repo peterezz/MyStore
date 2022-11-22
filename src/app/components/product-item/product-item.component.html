@@ -1,0 +1,43 @@
+<a [routerLink]="['/ProductDetails',ProductItem.id]">
+  <img [src]="ProductItem.url" class="product-image" />
+</a>
+<div class="product-container">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        {{ ProductItem.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">${{ ProductItem.price }}</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <select class="select-input" [(ngModel)]="ProductItem.Amount">
+          <option value="0" disabled>0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          class="btn btn-primary"
+          (click)="addToCart(ProductItem)"
+          [disabled]="disabled"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

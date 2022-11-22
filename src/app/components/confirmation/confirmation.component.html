@@ -1,0 +1,19 @@
+<div class="confirmation-container">
+    <div class="confirmation-items">
+        <div class="confirmation-header">
+            <h1>Success! <span>&#128512;</span></h1>
+        </div>
+        <div class="confirmation-item">
+            <p>Thank you. <strong>{{cart.user.UserName}}</strong>!</p>
+        </div>
+         <div class="confirmation-item">
+            <p>Your <strong>${{cart.CalculateProductsTotalPrice()}}</strong> order is confermed!</p>
+        </div>  
+        <div class="confirmation-item">
+            <p>Please allow 1-3 business day(s) for shipping.</p>
+        </div> 
+        <div class="confirmation-item">
+            <a class="btn btn-primary" routerLink="/">Back to product list</a>
+        </div>              
+    </div>
+</div>
