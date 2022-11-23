@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Products } from 'src/app/Model/ProductsModel';
 import { User } from 'src/app/Model/UserModel';
 import { Cart } from '../../Model/CartModel';
 import { CartService } from '../../services/cart.service';
@@ -14,7 +15,7 @@ export class CartComponent implements OnInit {
   myform = new FormGroup({
     Name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     Address: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    CridtCardNumber: new FormControl('', [Validators.required, Validators.minLength(3)])
+    CridtCardNumber: new FormControl('', [Validators.required, Validators.minLength(16), Validators.pattern('^4[0-9]{12}(?:[0-9]{3})?$')])
   });
   user :User;
  Cart : Cart=new Cart();
@@ -43,5 +44,8 @@ export class CartComponent implements OnInit {
     }
 
 
+  }
+  RemoveItemFromCart(item : Products){
+    this.TotalAmmount = this.CartService.RemoveItemFromCart(item);
   }
 }

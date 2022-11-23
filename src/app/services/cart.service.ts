@@ -31,5 +31,12 @@ export class CartService {
     this.Cart.user = User;
 
   }
+  RemoveItemFromCart(Product : Products) : number
+  {
+    let index= this.Cart.Products.indexOf(Product);
+    this.Cart.Products.splice(index,1);
+    alert(`${Product.name} is deleted from the cart`);
+    return this.Cart.CalculateProductsTotalPrice();
+  }
 
 }
