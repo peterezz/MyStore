@@ -38,5 +38,13 @@ export class CartService {
     alert(`${Product.name} is deleted from the cart`);
     return this.Cart.CalculateProductsTotalPrice();
   }
+  UpdateCartProducts(Product :Products)
+  {
+    let index= this.Cart.Products.findIndex(ind=>ind.id === Product.id);
+    if(index === -1) return;
+    else{
+    this.Cart.Products[index].Amount=Product.Amount;  
+    }
 
+  }
 }

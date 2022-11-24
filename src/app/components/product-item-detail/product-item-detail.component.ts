@@ -54,4 +54,8 @@ export class ProductItemDetailComponent implements OnInit , OnDestroy{
       this.disabled=true;
     }
   }
+  UpdateCartProducts( Product : Products){
+    this.CartService.UpdateCartProducts(Product);
+
+ }
 }

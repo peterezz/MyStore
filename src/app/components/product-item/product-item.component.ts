@@ -20,7 +20,7 @@ disabled: boolean=false;
     this.SingleProduct.emit(ProductItem);
 this.DisableButton();
   }
-  DisableButton(){
+  private DisableButton(){
     let ProductFound=this.sevice.GetCartItems().Products.find(p=>p.id===this.ProductItem.id);
     if(ProductFound !== undefined)
     {
@@ -30,5 +30,8 @@ this.DisableButton();
   ngOnInit(): void {
     this.DisableButton();
   }
+  UpdateCartProducts( Product : Products){
+    this.sevice.UpdateCartProducts(Product);
 
+ }
 }

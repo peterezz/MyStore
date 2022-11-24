@@ -15,7 +15,8 @@ export class CartComponent implements OnInit {
   myform = new FormGroup({
     Name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     Address: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    CridtCardNumber: new FormControl('', [Validators.required, Validators.minLength(16), Validators.pattern('^4[0-9]{12}(?:[0-9]{3})?$')])
+    CridtCardNumber: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[0-9]*$')])
+
   });
   user :User;
  Cart : Cart=new Cart();
