@@ -39,7 +39,7 @@ the project demo vedio here in this link (https://github.com/peterezz/MyStore/bl
 >  - *User* can add a spacific product with a spacific quantity to the cart so he/she can pruchase them later on.
 >  - *User* can see all the products he/she added to the cart.
 > - *User* can remove a spacific product from the cart.
-> - *User* can has a form to enter his/her data to prushase the products.
+> - *User* can has a form to enter his/her data to prushase the products
 
 
 
